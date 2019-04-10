@@ -41,7 +41,7 @@ public class BaseRestAndroid {
      * @param oclass
      * @param <T>
      */
-    private <T, R> void getSearchList(Context context, String url, HashMap<String, String> map, final Class<T> oclass, final Class<R> rclass, CallListBack callBack){
+    public <T, R> void getSearchList(Context context, String url, HashMap<String, String> map, final Class<T> oclass, final Class<R> rclass, CallListBack callBack){
         searchList(Rx2AndroidNetworking
                 .get(url).addQueryParameter("data", JSON.toJSONString(map))
                 .build()
@@ -55,7 +55,7 @@ public class BaseRestAndroid {
      * @param oclass
      * @param <T>
      */
-    private <T, R> void postSearchList(String url, HashMap<String, String> map, final Class<T> oclass, final Class<R> rclass, CallListBack callBack){
+    public <T, R> void postSearchList(String url, HashMap<String, String> map, final Class<T> oclass, final Class<R> rclass, CallListBack callBack){
         searchList(Rx2AndroidNetworking
                 .post(url).addQueryParameter("data", JSON.toJSONString(map))
                 .build()
@@ -69,7 +69,7 @@ public class BaseRestAndroid {
      * @param callBack
      * @param <T>
      */
-    public <T, R> void searchList(Observable observable, final Class<T> oclass, final Class<R> rclass, final CallListBack callBack) {
+    private  <T, R> void searchList(Observable observable, final Class<T> oclass, final Class<R> rclass, final CallListBack callBack) {
         observable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -128,7 +128,7 @@ public class BaseRestAndroid {
      * @param url
      * @param map
      */
-    private <R> void getSaveObject(String url, HashMap<String, String> map, final Class<R> rclass, CallSaveBack callBack){
+    public  <R> void getSaveObject(String url, HashMap<String, String> map, final Class<R> rclass, CallSaveBack callBack){
         saveObject(Rx2AndroidNetworking
                 .get(url).addQueryParameter("data", JSON.toJSONString(map))
                 .build()
@@ -140,14 +140,14 @@ public class BaseRestAndroid {
      * @param url
      * @param map
      */
-    private <R> void postSaveObject(String url, HashMap<String, String> map, final Class<R> rclass, CallSaveBack callBack){
+    public  <R> void postSaveObject(String url, HashMap<String, String> map, final Class<R> rclass, CallSaveBack callBack){
         saveObject(Rx2AndroidNetworking
                 .post(url).addQueryParameter("data", JSON.toJSONString(map))
                 .build()
                 .getStringObservable(), rclass, callBack);
     }
 
-    public <R> void saveObject(Observable observable, final Class<R> rclass,final CallSaveBack callBack) {
+    private  <R> void saveObject(Observable observable, final Class<R> rclass,final CallSaveBack callBack) {
         observable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
