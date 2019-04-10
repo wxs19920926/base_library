@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 public interface CallSaveBack<R> {
 
-    public String callBackObject(R result);
-
     public void callBackResult(R result);
 
 }
