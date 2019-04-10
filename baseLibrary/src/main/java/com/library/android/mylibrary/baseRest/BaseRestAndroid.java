@@ -41,7 +41,7 @@ public class BaseRestAndroid {
      * @param oclass
      * @param <T>
      */
-    public <T, R> void getSearchList(String url, String data, final Class<T> oclass, final Class<R> rclass, CallListBack callBack){
+    public <T, R> void getSearchList(String url, String data, final Class<T> oclass, final Class<R> rclass, CallListBack<T, R> callBack){
         searchList(Rx2AndroidNetworking
                 .get(url).addQueryParameter("data", data)
                 .build()
@@ -55,7 +55,7 @@ public class BaseRestAndroid {
      * @param oclass
      * @param <T>
      */
-    public <T, R> void postSearchList(String url, String data, final Class<T> oclass, final Class<R> rclass, CallListBack callBack){
+    public <T, R> void postSearchList(String url, String data, final Class<T> oclass, final Class<R> rclass, CallListBack<T, R> callBack){
         searchList(Rx2AndroidNetworking
                 .post(url).addQueryParameter("data", data)
                 .build()
@@ -69,7 +69,7 @@ public class BaseRestAndroid {
      * @param callBack
      * @param <T>
      */
-    private  <T, R> void searchList(Observable observable, final Class<T> oclass, final Class<R> rclass, final CallListBack callBack) {
+    private  <T, R> void searchList(Observable observable, final Class<T> oclass, final Class<R> rclass, final CallListBack<T, R> callBack) {
         observable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -128,7 +128,7 @@ public class BaseRestAndroid {
      * @param url
      * @param data
      */
-    public  <R> void getSaveObject(String url, String data, final Class<R> rclass, CallSaveBack callBack){
+    public  <R> void getSaveObject(String url, String data, final Class<R> rclass, CallSaveBack<R> callBack){
         saveObject(Rx2AndroidNetworking
                 .get(url).addQueryParameter("data", data)
                 .build()
@@ -140,14 +140,14 @@ public class BaseRestAndroid {
      * @param url
      * @param data
      */
-    public  <R> void postSaveObject(String url, String data, final Class<R> rclass, CallSaveBack callBack){
+    public  <R> void postSaveObject(String url, String data, final Class<R> rclass, CallSaveBack<R> callBack){
         saveObject(Rx2AndroidNetworking
                 .post(url).addQueryParameter("data", data)
                 .build()
                 .getStringObservable(), rclass, callBack);
     }
 
-    private  <R> void saveObject(Observable observable, final Class<R> rclass,final CallSaveBack callBack) {
+    private  <R> void saveObject(Observable observable, final Class<R> rclass,final CallSaveBack<R> callBack) {
         observable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

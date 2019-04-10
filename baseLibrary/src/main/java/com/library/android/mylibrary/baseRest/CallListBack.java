@@ -10,9 +10,12 @@ import java.util.ArrayList;
 
 public interface CallListBack<T, R> {
 
+    //返回json解析对象
     public String callBackObject(R result);
 
+    //返回数组
     public void callBackList(ArrayList<T> arrayList);
 
+    //保存校验返回
     public boolean callBackResult(R result);
 }
