@@ -159,15 +159,6 @@ public class BaseRestAndroid {
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(new Consumer<R>() {
-                    @Override
-                    public void accept(R result) throws Exception {
-                        if(!callBack.callBackResult(result)) {
-                            return;
-                        }
-                    }
-                })
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<R>() {
                     @Override
                     public void onSubscribe(Disposable d) {

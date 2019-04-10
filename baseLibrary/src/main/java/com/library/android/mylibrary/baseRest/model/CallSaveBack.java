@@ -10,5 +10,6 @@ public interface CallSaveBack<R> {
 
     public String callBackObject(R result);
 
-    public boolean callBackResult(R result);
+    public void callBackResult(R result);
+
 }
