@@ -37,13 +37,13 @@ public class BaseRestAndroid {
     /**
      * get获取数组对象
      * @param url
-     * @param map
+     * @param data
      * @param oclass
      * @param <T>
      */
-    public <T, R> void getSearchList(Context context, String url, HashMap<String, String> map, final Class<T> oclass, final Class<R> rclass, CallListBack callBack){
+    public <T, R> void getSearchList(String url, String data, final Class<T> oclass, final Class<R> rclass, CallListBack callBack){
         searchList(Rx2AndroidNetworking
-                .get(url).addQueryParameter("data", JSON.toJSONString(map))
+                .get(url).addQueryParameter("data", data)
                 .build()
                 .getStringObservable(), oclass, rclass, callBack);
     }
@@ -51,13 +51,13 @@ public class BaseRestAndroid {
     /**
      * post获取数组对象
      * @param url
-     * @param map
+     * @param data
      * @param oclass
      * @param <T>
      */
-    public <T, R> void postSearchList(String url, HashMap<String, String> map, final Class<T> oclass, final Class<R> rclass, CallListBack callBack){
+    public <T, R> void postSearchList(String url, String data, final Class<T> oclass, final Class<R> rclass, CallListBack callBack){
         searchList(Rx2AndroidNetworking
-                .post(url).addQueryParameter("data", JSON.toJSONString(map))
+                .post(url).addQueryParameter("data", data)
                 .build()
                 .getStringObservable(), oclass, rclass, callBack);
     }
@@ -126,11 +126,11 @@ public class BaseRestAndroid {
     /**
      * get保存对象
      * @param url
-     * @param map
+     * @param data
      */
-    public  <R> void getSaveObject(String url, HashMap<String, String> map, final Class<R> rclass, CallSaveBack callBack){
+    public  <R> void getSaveObject(String url, String data, final Class<R> rclass, CallSaveBack callBack){
         saveObject(Rx2AndroidNetworking
-                .get(url).addQueryParameter("data", JSON.toJSONString(map))
+                .get(url).addQueryParameter("data", data)
                 .build()
                 .getStringObservable(), rclass, callBack);
     }
@@ -138,11 +138,11 @@ public class BaseRestAndroid {
     /**
      * post保存对象
      * @param url
-     * @param map
+     * @param data
      */
-    public  <R> void postSaveObject(String url, HashMap<String, String> map, final Class<R> rclass, CallSaveBack callBack){
+    public  <R> void postSaveObject(String url, String data, final Class<R> rclass, CallSaveBack callBack){
         saveObject(Rx2AndroidNetworking
-                .post(url).addQueryParameter("data", JSON.toJSONString(map))
+                .post(url).addQueryParameter("data", data)
                 .build()
                 .getStringObservable(), rclass, callBack);
     }
