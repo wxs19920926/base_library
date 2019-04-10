@@ -1,17 +1,13 @@
 package com.library.android.mylibrary.baseRest;
 
-import android.content.Context;
-import android.widget.Toast;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.library.android.mylibrary.baseRest.model.CallSaveBack;
-import com.library.android.mylibrary.baseRest.model.Result;
+import com.library.android.mylibrary.baseRest.imp.CallListBack;
+import com.library.android.mylibrary.baseRest.imp.CallSaveBack;
 import com.library.android.mylibrary.baseUtil.TestUtil;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;

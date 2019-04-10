@@ -1,6 +1,4 @@
-package com.library.android.mylibrary.baseRest;
-
-import com.library.android.mylibrary.baseRest.model.Result;
+package com.library.android.mylibrary.baseRest.imp;
 
 import java.util.ArrayList;
 

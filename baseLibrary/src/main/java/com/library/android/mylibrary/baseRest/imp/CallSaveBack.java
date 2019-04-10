@@ -1,6 +1,4 @@
-package com.library.android.mylibrary.baseRest.model;
-
-import java.util.ArrayList;
+package com.library.android.mylibrary.baseRest.imp;
 
 /**
  * Created by wxs on 2019/4/4.
