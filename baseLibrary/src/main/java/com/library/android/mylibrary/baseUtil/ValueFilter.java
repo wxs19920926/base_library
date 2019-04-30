@@ -12,7 +12,7 @@ public abstract class ValueFilter {
      * 清空JSONObject 值前后空格
      * @param object
      */
-    private void jsonParameterTrimObject(JSONObject object){
+    public void jsonParameterTrimObject(JSONObject object){
         for(String str: object.keySet()){
             Object o = object.get(str);
             if(null != o){
@@ -34,7 +34,7 @@ public abstract class ValueFilter {
      * 清空JSONArray 值前后空格
      * @param array
      */
-    private void jsonParameterTrimArray(JSONArray array){
+    public void jsonParameterTrimArray(JSONArray array){
         if(array.size() > 0){
             for(int i=0; i< array.size();i++){
                 Object oa = array.get(i);
@@ -56,5 +56,5 @@ public abstract class ValueFilter {
 
     public abstract void jsonArrayFilter(JSONArray array, int i, Object oa);
 
-    public abstract void jsonObjectFilter(JSONObject array, String str, Object o);
+    public abstract void jsonObjectFilter(JSONObject object, String str, Object o);
 }
