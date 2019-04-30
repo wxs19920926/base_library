@@ -54,7 +54,7 @@ public abstract class ValueFilter {
         }
     }
 
-    abstract void jsonArrayFilter(JSONArray array, int i, Object oa);
+    public abstract void jsonArrayFilter(JSONArray array, int i, Object oa);
 
-    abstract void jsonObjectFilter(JSONObject array, String str, Object o);
+    public abstract void jsonObjectFilter(JSONObject array, String str, Object o);
 }
